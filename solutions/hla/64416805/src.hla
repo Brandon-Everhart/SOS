@@ -1,0 +1,36 @@
+program MaxMin;
+#include("stdlib.hhf")
+
+storage
+    input: int32;
+    maxVal: int32; 
+    minVal: int32;
+
+static
+    count:   int32:=   0;
+    sum:     int32:=   0;
+    boolVar: boolean:= true;
+
+begin MaxMin;
+    while(boolVar) do
+        stdout.put("Enter a number, 0 to stop: ");
+        stdin.geti32();
+
+        if (EAX = 0 ) then
+            break;
+        elseif ( count = 0 ) then
+            mov(EAX, maxVal);
+            mov(EAX, minVal);
+        elseif (EAX > maxVal) then
+            mov(EAX, maxVal);
+        elseif (EAX < minVal) then
+            mov(EAX, minVal);
+        endif;
+    
+        add(EAX, sum);
+        add(1, count);   
+    endwhile;
+
+    stdout.newln();
+    stdout.put("Total: ",sum,nl,"Count: ",count,nl,"Maximum: ",maxVal,nl,"Minimum: ",minVal,nl);
+end MaxMin;
