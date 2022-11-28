@@ -1,0 +1,37 @@
+program Strlen;
+#include("stdlib.hhf")
+
+storage
+    inputStr: string;
+
+static 
+    inputLen: int32;
+
+begin Strlen;
+    // Prompt user for input
+    stdout.put("Feed me: ");
+
+    // Flush Input
+    stdin.flushInput();
+
+    // Allocat and read input
+    stdin.a_gets();
+
+    // Save result in inputStr
+    mov(EAX, inputStr);
+
+    // Display input back to user
+    stdout.put("The String You Entered: ", inputStr, nl);
+
+    // Calculate length of input string
+    str.length(inputStr);
+
+    // Save result in inputLen
+    mov(EAX, inputLen);
+
+    // Display input length to the user
+    stdout.put("Has Length = ", inputLen, nl);
+
+    // Free allocated memory
+    str.free(inputStr);
+end Strlen;
