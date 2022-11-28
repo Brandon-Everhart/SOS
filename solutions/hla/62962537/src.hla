@@ -1,0 +1,20 @@
+program Boxit;
+#include ("stdlib.hhf");
+
+begin Boxit;
+    stdout.put("Gimme a decimal value to use as n: ");
+    stdin.geti32();
+
+    for ( xor(EBX, EBX); EBX <= EAX; add(2, EBX) ) do
+        stdout.puti32(EBX);
+        stdout.put(", ");
+    endfor;
+
+    stdout.newln();
+
+    for ( mov(1, EBX); EBX <= EAX; add(2, EBX) ) do
+        stdout.puti32(EBX);
+        stdout.put(", ");
+    endfor;
+
+end Boxit;
